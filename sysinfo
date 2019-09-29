@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Author: Arthur
+# This will be for system info
+
+TITLE="SysInfo Report for $HOSTNAME"
+CURRENT_TIME=$(date +"%x %r %Z")
+TIME_STAMP="Generated $CURRENT_TIME by $USER"
+
+report_uptime () {
+	echo "System Uptime"
+	return
+#Function that echos System Uptime
+}
+
+report_disk_space () {
+	echo "Disk Space Usage"
+	return
+}
+
+report_home_space() {
+	echo "Home Space Utilized"
+	return
+}
+
+
+#When functions are called below, 
+
+cat <<- _EOF_
+
+<HTML>
+	<HEAD>
+		<TITLE>$TITLE</TITLE>
+	</HEAD>
+	<BODY>
+		<H1>$TITLE</H1>
+		This is a body of text. Yay!
+		$(report_uptime)
+		$(report_disk_space)
+		$(report_home_space)
+		<P>$TIME_STAMP</p>
+	</BODY>
+</HTML>
+_EOF_
